@@ -6,11 +6,17 @@ import { AccountModule } from './modules/account/account.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MessageComponent } from './message/message.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptorService } from './modules/shared/services/token-interceptor.service';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    MessageComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +24,13 @@ import { NavbarComponent } from './navbar/navbar.component';
     SharedModule,
     AccountModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

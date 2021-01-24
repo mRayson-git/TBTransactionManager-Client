@@ -1,0 +1,24 @@
+<div class="row justify-content-center mt-3">
+  <div class="col-sm-12 col-md-6">
+    <div *ngIf="dangerMessages.length !== 0" class="alert alert-danger">
+      <ul>
+        <li *ngFor="let message of dangerMessages">{{ message }}</li>
+      </ul>
+    </div>
+    <div *ngIf="warningMessages.length !== 0" class="alert alert-warning">
+      <ul>
+        <li *ngFor="let message of warningMessages">{{ message }}</li>
+      </ul>
+    </div>
+    <div *ngIf="successMessages.length !== 0" class="alert alert-success">
+      <ul>
+        <li *ngFor="let message of successMessages">{{ message }}</li>
+      </ul>
+    </div>
+    <div *ngIf="infoMessages.length !== 0" class="alert alert-info">
+      <ul>
+        <li *ngFor="let message of infoMessages">{{ message }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
