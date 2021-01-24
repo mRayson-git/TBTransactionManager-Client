@@ -4,13 +4,15 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SharedModule } from '../shared/shared.module';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { ParserCreationComponent } from './parser-creation/parser-creation.component';
+import { AccountComponent } from './account.component';
 
 
 
 
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, AccountSettingsComponent],
+  declarations: [LoginComponent, RegisterComponent, AccountSettingsComponent, ParserCreationComponent, AccountComponent],
   imports: [
     CommonModule,
     SharedModule
