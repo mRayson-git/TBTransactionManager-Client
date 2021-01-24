@@ -21,6 +21,7 @@ export class UserService {
         this.ms.addDangerMessage(reply.message);
       } else {
         this.ms.addSuccessMessage(reply.message);
+        this.router.navigate(['/login']);
       }
     });
   }
@@ -46,5 +47,16 @@ export class UserService {
     localStorage.removeItem('thinkbudget-token');
     localStorage.removeItem('thinkbudget-user');
     this.router.navigate(['/login']);
+  }
+
+  // Update user
+  updateUser(user: User): void {
+    this.http.post<Reply>(this.userUrl + 'update', user).subscribe(reply => {
+      if (!reply.success) {
+        this.ms.addDangerMessage(reply.message);
+      } else {
+        this.ms.addSuccessMessage(reply.message);
+      }
+    });
   }
 }

@@ -6,7 +6,6 @@ import { AccountModule } from './modules/account/account.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { MessageComponent } from './message/message.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './modules/shared/services/token-interceptor.service';
 import { HomeComponent } from './home/home.component';
@@ -15,7 +14,6 @@ import { HomeComponent } from './home/home.component';
   declarations: [
     AppComponent,
     NavbarComponent,
-    MessageComponent,
     HomeComponent
   ],
   imports: [
