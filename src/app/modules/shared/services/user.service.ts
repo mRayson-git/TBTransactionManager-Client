@@ -17,6 +17,7 @@ export class UserService {
   // Register user
   registerUser(user: User): void {
     this.http.post<Reply>(this.userUrl + 'register', user).subscribe(reply => {
+      console.log(reply);
       if (!reply.success) {
         this.ms.addDangerMessage(reply.message);
       } else {
@@ -29,6 +30,7 @@ export class UserService {
   // Login user
   loginUser(user: User): void {
     this.http.post<Reply>(this.userUrl + 'login', user).subscribe(reply => {
+      console.log(reply);
       if (!reply.success) {
         this.ms.addDangerMessage(reply.message);
       } else {
