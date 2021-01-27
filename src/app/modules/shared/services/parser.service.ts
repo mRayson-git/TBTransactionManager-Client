@@ -1,5 +1,4 @@
 import { HttpClient } from '@angular/common/http';
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Parser } from '../models/parser';
@@ -26,6 +25,18 @@ export class ParserService {
         this.ms.addDangerMessage(reply.message);
       }
     });
+    this.getParsers(parser.email);
+  }
+
+  // Update Parser
+  updateParser(parser: Parser): void {
+    this.http.post<Reply>(this.parserUrl + 'update', parser).subscribe(reply => {
+      if (reply.success) {
+        this.ms.addSuccessMessage(reply.message);
+      } else {
+        this.ms.addDangerMessage(reply.message);
+      }
+    });
   }
 
   // Get parsers
@@ -36,6 +47,17 @@ export class ParserService {
         reply.result3.forEach(parser => {
           this.parserSubject.next(parser);
         });
+      } else {
+        this.ms.addDangerMessage(reply.message);
+      }
+    });
+  }
+
+  // Delete parser
+  deleteParser(parser: Parser): void {
+    this.http.post<Reply>(this.parserUrl + 'delete', parser).subscribe(reply => {
+      if (reply.success) {
+        this.ms.addSuccessMessage(reply.message);
       } else {
         this.ms.addDangerMessage(reply.message);
       }

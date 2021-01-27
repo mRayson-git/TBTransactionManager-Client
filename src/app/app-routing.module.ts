@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { AccountSettingsComponent } from './modules/account/account-settings/account-settings.component';
 import { AccountComponent } from './modules/account/account.component';
 import { LoginComponent } from './modules/account/login/login.component';
+import { ParserInformationComponent } from './modules/account/parser-information/parser-information.component';
 import { RegisterComponent } from './modules/account/register/register.component';
 import { AuthGuard } from './modules/shared/guards/auth.guard';
 
@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'accountSettings', component: AccountComponent, canActivate: [AuthGuard] },
+  { path: 'accountSettings/parserInformation', component: ParserInformationComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

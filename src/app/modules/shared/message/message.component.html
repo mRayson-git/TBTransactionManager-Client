@@ -1,24 +1,16 @@
-<div class="row justify-content-center mt-3">
-  <div class="col-sm-12 col-md-6">
-    <div *ngIf="dangerMessages.length !== 0" class="alert alert-danger">
-      <ul>
-        <li *ngFor="let message of dangerMessages">{{ message }}</li>
-      </ul>
-    </div>
-    <div *ngIf="warningMessages.length !== 0" class="alert alert-warning">
-      <ul>
-        <li *ngFor="let message of warningMessages">{{ message }}</li>
-      </ul>
-    </div>
-    <div *ngIf="successMessages.length !== 0" class="alert alert-success">
-      <ul>
-        <li *ngFor="let message of successMessages">{{ message }}</li>
-      </ul>
-    </div>
-    <div *ngIf="infoMessages.length !== 0" class="alert alert-info">
-      <ul>
-        <li *ngFor="let message of infoMessages">{{ message }}</li>
-      </ul>
-    </div>
+<div class="row justify-content-center">
+  <div class="col-sm-11">
+    <ngb-toast *ngIf="dangerMessages.length !== 0" [autohide]="false" class="bg-danger toast">
+      <p *ngFor="let message of dangerMessages" class="fs-5 text-center p-0">{{message}}</p>
+    </ngb-toast>
+    <ngb-toast *ngIf="successMessages.length !== 0" [autohide]="false" class="bg-success toast">
+      <p *ngFor="let message of successMessages" class="fs-5 text-center p-0">{{message}}</p>  
+    </ngb-toast>
+    <ngb-toast *ngIf="warningMessages.length !== 0" [autohide]="false" class="bg-warning toast">
+      <p *ngFor="let message of warningMessages" class="fs-5 text-center p-0">{{message}}</p>
+    </ngb-toast>
+    <ngb-toast *ngIf="infoMessages.length !== 0" [autohide]="false" class="bg-info toast">
+      <p *ngFor="let message of infoMessages" class="fs-5 text-center p-0">{{message}}</p>
+    </ngb-toast>
   </div>
 </div>

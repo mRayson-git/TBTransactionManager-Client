@@ -20,7 +20,7 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    AccountModule
+    AccountModule,
   ],
   providers: [
     {
