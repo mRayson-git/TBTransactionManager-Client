@@ -19,7 +19,7 @@ export class ParserService {
   // Save parser
   saveParser(parser: Parser): void {
     this.http.post<Reply>(this.parserUrl + 'save', parser).subscribe(reply => {
-      if (reply.success) {
+      if (reply.success === 1) {
         this.ms.addSuccessMessage(reply.message);
       } else {
         this.ms.addDangerMessage(reply.message);
@@ -31,7 +31,7 @@ export class ParserService {
   // Update Parser
   updateParser(parser: Parser): void {
     this.http.post<Reply>(this.parserUrl + 'update', parser).subscribe(reply => {
-      if (reply.success) {
+      if (reply.success === 1) {
         this.ms.addSuccessMessage(reply.message);
       } else {
         this.ms.addDangerMessage(reply.message);
@@ -42,11 +42,13 @@ export class ParserService {
   // Get parsers
   getParsers(userEmail: string): void {
     this.http.get<Reply>(this.parserUrl + 'get/' + userEmail).subscribe(reply => {
-      if (reply.success) {
+      if (reply.success === 1) {
         this.ms.addSuccessMessage(reply.message);
         reply.result3.forEach(parser => {
           this.parserSubject.next(parser);
         });
+      } else if(reply.success === 2) {
+        this.ms.addWarningMessage(reply.message);
       } else {
         this.ms.addDangerMessage(reply.message);
       }

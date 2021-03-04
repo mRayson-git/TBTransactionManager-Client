@@ -30,6 +30,7 @@ export class AccountSettingsComponent implements OnInit {
     const user: User = {
       username: this.userSettings.get('username').value,
       email: this.userSettings.get('email').value,
+      contactEmail: this.userSettings.get('contactEmail').value,
       password: this.userSettings.get('password').value,
     }
     this.us.updateUser(user);

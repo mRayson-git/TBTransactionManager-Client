@@ -1,16 +1,3 @@
-<div class="row justify-content-center">
-  <div class="col-sm-11">
-    <ngb-toast *ngIf="dangerMessages.length !== 0" [autohide]="false" class="bg-danger toast">
-      <p *ngFor="let message of dangerMessages" class="fs-5 text-center p-0">{{message}}</p>
-    </ngb-toast>
-    <ngb-toast *ngIf="successMessages.length !== 0" [autohide]="false" class="bg-success toast">
-      <p *ngFor="let message of successMessages" class="fs-5 text-center p-0">{{message}}</p>  
-    </ngb-toast>
-    <ngb-toast *ngIf="warningMessages.length !== 0" [autohide]="false" class="bg-warning toast">
-      <p *ngFor="let message of warningMessages" class="fs-5 text-center p-0">{{message}}</p>
-    </ngb-toast>
-    <ngb-toast *ngIf="infoMessages.length !== 0" [autohide]="false" class="bg-info toast">
-      <p *ngFor="let message of infoMessages" class="fs-5 text-center p-0">{{message}}</p>
-    </ngb-toast>
-  </div>
-</div>
+<ngb-toast *ngFor="let toast of ms.toasts" [autohide]="true" [delay]="5000" (hide)="ms.remove(toast)" [ngStyle]="{ 'background-color': msgColour(toast.header) }">
+  {{toast.content}}
+</ngb-toast>

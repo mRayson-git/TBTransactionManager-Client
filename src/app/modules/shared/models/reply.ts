@@ -1,5 +1,5 @@
 export interface Reply {
-  success: boolean,
+  success: number,
   message: string,
   result: never,
   result2: never,

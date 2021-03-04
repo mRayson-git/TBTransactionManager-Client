@@ -27,6 +27,7 @@ export class ParserCreationComponent implements OnInit {
     this.ps.getParsers(this.currUser.email);
     this.parserForm = this.fb.group({
       bankAccountName: ['', Validators.required],
+      bankAccountType: ['debit', Validators.required],
       hasHeader: ['false'],
       dateCol: ['', Validators.required],
       amountCol: ['', Validators.required],
@@ -39,6 +40,7 @@ export class ParserCreationComponent implements OnInit {
     const parser: Parser = {
       email: this.currUser.email,
       bankAccountName: this.parserForm.get('bankAccountName').value,
+      bankAccountType: this.parserForm.get('bankAccountType').value,
       hasHeader: this.parserForm.get('hasHeader').value,
       dateCol: this.parserForm.get('dateCol').value,
       amountCol: this.parserForm.get('amountCol').value,

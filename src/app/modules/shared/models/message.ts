@@ -1,4 +1,4 @@
 export interface Message {
-  type: string,
+  header: string,
   content: string,
 }

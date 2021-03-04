@@ -9,6 +9,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptorService } from './modules/shared/services/token-interceptor.service';
 import { HomeComponent } from './home/home.component';
+import { TransactionModule } from './modules/transaction/transaction.module';
+import { BudgetModule } from './modules/budget/budget.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { HomeComponent } from './home/home.component';
     AppRoutingModule,
     SharedModule,
     AccountModule,
+    TransactionModule,
+    BudgetModule,
   ],
   providers: [
     {

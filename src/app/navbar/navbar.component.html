@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">think<span class="text-success">Budget</span></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,6 +18,8 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" routerLink="/accountSettings">Account Settings</a></li>
+            <li><a class="dropdown-item" routerLink="/budgetSettings">Budget Settings</a></li>
+            <li><a class="dropdown-item" routerLink="/transactionManagement">Transactions</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item btn" (click)="user.logoutUser()">Logout</a></li>
           </ul>

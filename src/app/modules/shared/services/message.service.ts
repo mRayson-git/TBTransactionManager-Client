@@ -11,41 +11,28 @@ export class MessageService {
   messageSubject: Subject<Message> = new Subject<Message>();
   messages$ = this.messageSubject.asObservable();
 
+  toasts: Message[] = [];
+
   constructor() { }
 
   addDangerMessage(content: string): void {
-    console.log('Adding danger message');
-    const message: Message = {
-      type: 'danger',
-      content: content,
-    }
-    this.messageSubject.next(message);
+    this.toasts.push({ header: 'Danger message', content: content });
   }
 
   addWarningMessage(content: string): void {
-    console.log('Adding warning message');
-    const message: Message = {
-      type: 'warning',
-      content: content,
-    }
-    this.messageSubject.next(message);
+    this.toasts.push({ header: 'Warning message', content: content });
+    console.log(this.toasts);
   }
 
   addSuccessMessage(content: string): void {
-    console.log('Adding success message');
-    const message: Message = {
-      type: 'success',
-      content: content,
-    }
-    this.messageSubject.next(message);
+    this.toasts.push({ header: 'Success message', content: content });
   }
 
   addInfoMessage(content: string): void {
-    console.log('Adding info message');
-    const message: Message = {
-      type: 'info',
-      content: content,
-    }
-    this.messageSubject.next(message);
+    this.toasts.push({ header: 'Info message', content: content });
+  }
+
+  remove(toast: Message): void {
+    this.toasts = this.toasts.filter(t => t != toast);
   }
 }

@@ -8,35 +8,20 @@ import { MessageService } from '../services/message.service';
 })
 export class MessageComponent implements OnInit {
   
-  dangerMessages: string[] = [];
-  warningMessages: string[] = [];
-  successMessages: string[] = [];
-  infoMessages: string[] = [];
-  
-  constructor(private ms: MessageService) { }
+  constructor(public ms: MessageService) { }
 
-  ngOnInit(): void {
-    this.ms.messages$.subscribe(message => {
-      if (message.type === 'danger') {
-        this.dangerMessages.push(message.content);
-      } else if (message.type === 'warning') {
-        this.warningMessages.push(message.content);
-      } else if (message.type === 'success') {
-        this.successMessages.push(message.content);
-      } else {
-        this.infoMessages.push(message.content);
-      }
-      setTimeout(()=> {
-        this.dangerMessages = [];
-        this.warningMessages = [];
-        this.successMessages = [];
-        this.infoMessages = [];
-      }, 3000);
-    });
+  ngOnInit(): void { }
+
+  msgColour(header: string): string {
+    if (header === 'Danger message') {
+      return '#f5897d';
+    } else if (header === 'Success message') {
+      return '#cef2b3';
+    } else if (header === 'Warning message') {
+      return '#faf09b';
+    } else {
+      return '#acbdfa';
+    }
   }
-
-
-
-
-
+  
 }

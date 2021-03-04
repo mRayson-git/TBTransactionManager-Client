@@ -21,6 +21,7 @@ export class ParserInformationComponent implements OnInit {
       this.parser = {
         email: params['email'],
         bankAccountName: params['bankAccountName'],
+        bankAccountType: params['bankAccountType'],
         hasHeader: params['hasHeader'],
         dateCol: params['dateCol'],
         amountCol: params['amountCol'],
@@ -32,6 +33,7 @@ export class ParserInformationComponent implements OnInit {
       email: [this.parser.email],
       hasHeader: [this.parser.hasHeader],
       bankAccountName: [{ value: this.parser.bankAccountName, disabled: true }],
+      bankAccountType: [this.parser.bankAccountType],
       dateCol: [this.parser.dateCol],
       amountCol: [this.parser.amountCol],
       payeeCol: [this.parser.payeeCol],
@@ -43,6 +45,7 @@ export class ParserInformationComponent implements OnInit {
     const parser: Parser = {
       email: this.parser.email,
       bankAccountName: this.parserForm.get('bankAccountName').value,
+      bankAccountType: this.parserForm.get('bankAccountType').value,
       hasHeader: this.parserForm.get('hasHeader').value,
       dateCol: this.parserForm.get('dateCol').value,
       amountCol: this.parserForm.get('amountCol').value,
